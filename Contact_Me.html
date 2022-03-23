@@ -3,6 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script>
+    function validateForm() {
+        let x = document.forms["myForm"]["yourMessage"].value;
+        if (x == "") {
+            alert("Your Message must be filled out");
+            return false;
+           }
+
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.yourEmail.value))
+  {
+    return (true)
+  }else{
+    alert("You have entered an invalid email address!")
+    return (false)
+  }
+}
+
+  </script>
   </head>
   <body>
     <h3>My Contact Details</h3>
@@ -12,15 +30,16 @@
 
     <hr>
 
-    <form  action="mailto:udaygaikwad.ug3421@gmail.com" method="post" enctype="text/plain">
+    <form name="myForm" action="mailto:udaygaikwad.ug3421@gmail.com" onsubmit="return validateForm()" method="post" enctype="text/plain">
       <label>Your Name:</label>
-      <input type="text" name="yourName" value="">
+      <input type="text" name="yourName" value="" required>
       <br>
       <label>Your Email:</label>
-      <input type="email" name="yourEmail" value="">
+      <input type="text" name="yourEmail" value="">
       <br>
       <label>Your Message:</label>
       <br>
+      
       <textarea name="yourMessage" rows="8" cols="80"></textarea>
       <br>
 
